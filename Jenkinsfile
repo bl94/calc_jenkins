@@ -4,12 +4,12 @@ pipeline {
         stage('build') {
             steps {
                 echo 'Build'
-
-                }
-            }
-            stage('Run pytest') {
-            bat "pytest mytest.py"
-                }
             }
         }
-    
+        stage('Run pytest') {
+            steps{
+            sh 'pytest mytest.py'
+             }
+        }
+    }
+}
