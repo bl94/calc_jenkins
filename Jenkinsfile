@@ -6,10 +6,11 @@ pipeline {
                 echo 'Build'
             }
         }
-        stage('Run pytest') {
-            steps{
-            sh 'pytest test_calc.py'
-             }
+        stage("test PythonEnv") {
+            withPythonEnv('python3') {
+                sh 'pip install pytest'
+                sh 'pytest mytest.py'
+            }       
         }
     }
 }
