@@ -7,11 +7,9 @@ pipeline {
 
                 }
             }
-            stage('Test') {
-                steps {
-                echo 'Test'
-                sh'python -m py_compile test_calc.py'
-                stash(name: 'compiled-results', includes: '*.py*')
+            stage('Run pytest') 
+   {
+            bat "pytest mytest.py"
                 }
             }
         }
