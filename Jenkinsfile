@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Run pytest') {
             steps{
-            sh 'pytest mytest.py'
+            sh 'pytest test_calc.py'
              }
         }
     }
