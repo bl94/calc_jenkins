@@ -7,10 +7,9 @@ pipeline {
 
                 }
             }
-            stage('Run pytest') 
-   {
+            stage('Run pytest') {
             bat "pytest mytest.py"
                 }
             }
         }
-    }
+    
