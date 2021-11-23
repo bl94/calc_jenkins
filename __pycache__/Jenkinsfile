@@ -1,0 +1,19 @@
+pipeline {
+  agent any
+  stages {
+    stage('BUILD') {
+      steps {
+        echo 'Build message'
+        sh 'pip install -r requirements.txt'
+      }
+    }
+
+    stage('Test') {
+      steps {
+        echo 'Testing'
+        sh 'python test_calc.py'
+      }
+    }
+
+  }
+}
