@@ -9,7 +9,7 @@ pipeline {
       stage('Test') {
             agent any
               steps {
-                  sh 'python unit-test.py'
+                  sh 'python test_calc.py'
             }
         }
     }  
