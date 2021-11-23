@@ -6,11 +6,13 @@ pipeline {
         echo 'Jenkins minimum pipeline'
       }
     }
-      stage('Test') {
-            agent any
-              steps {
-                  sh 'python test_calc.py'
-            }
-        }
-    }  
+
+    stage('Test') {
+      agent any
+      steps {
+        sh 'python test_calc.py'
+      }
+    }
+
+  }
 }
