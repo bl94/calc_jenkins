@@ -13,3 +13,10 @@ pipeline {
     }  
   }
 }
+node
+{
+   stage('Run pytest') 
+   {
+       bat "pytest test_calc.py"
+   }    
+}
