@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Build') {
             agent {
-                docker {
+                docker any{
                     //This image parameter (of the agent section’s docker parameter) downloads the python:2-alpine
                     //Docker image and runs this image as a separate container. The Python container becomes
                     //the agent that Jenkins uses to run the Build stage of your Pipeline project.
@@ -18,12 +18,12 @@ pipeline {
                 sh 'python -m py_compile calc_jenkins.py test_calc.py'
                 //This stash step saves the Python source code and compiled byte code files from the sources
                 //workspace directory for use in later stages.
-                stash(name: 'compiled-results', includes: 'sources/*.py*')
+                stash(name: 'compiled-results', includes: '*.py*')
             }
         }
         stage('Test') {
             agent {
-                docker {
+                docker any {
                     //This image parameter downloads the qnib:pytest Docker image and runs this image as a
                     //separate container. The pytest container becomes the agent that Jenkins uses to run the Test
                     //stage of your Pipeline project.
