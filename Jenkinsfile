@@ -6,17 +6,22 @@ pipeline {
         echo 'Jenkins minimum pipeline'
       }
     }
-    stage('test'){
-      steps{
-        echo 'Testing'
-      }
+   stage('Test') {
+            agent {
+                docker {
+                    image 'qnib/pytest'
+                }
+            }
+            steps {
+                sh 'py.test --junit-xml test-reports/results.xml sources/test_calc.py'
+            }
+            post {
+                always {
+                    junit 'test-reports/results.xml'
+                }
+            }
+        }
     }  
   }
-}
-node
-{
-   stage('Run pytest') 
-   {
-       bat "py.test test_calc.py"
-   }    
-}
+
+
