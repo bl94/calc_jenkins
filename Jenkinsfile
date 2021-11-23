@@ -10,7 +10,8 @@ pipeline {
     stage('Test') {
       agent any
       steps {
-        sh 'python test_calc.py'
+        sh '''jenkins/test.sh
+python test_calc.py'''
       }
     }
 
