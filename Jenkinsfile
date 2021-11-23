@@ -6,6 +6,10 @@ pipeline {
         echo 'Jenkins minimum pipeline'
       }
     }
-
+    stage('test'){
+      steps{
+        echo 'Testing'
+      }
+    }  
   }
 }
