@@ -17,6 +17,6 @@ node
 {
    stage('Run pytest') 
    {
-       bat "pytest test_calc.py"
+       bat "py.test test_calc.py"
    }    
 }
