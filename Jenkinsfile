@@ -1,4 +1,5 @@
 pipeline {
+<<<<<<< HEAD
 //None parameter in the agent section means that no global agent will be allocated for the entire Pipeline’s
 //execution and that each stage directive must specify its own agent section.
     agent none
@@ -43,9 +44,29 @@ pipeline {
                     //exposes the results through the Jenkins interface.
                     //The post section’s always condition that contains this junit step ensures that the step is
                     //always executed at the completion of the Test stage, regardless of the stage’s outcome.
+=======
+  agent any
+  stages {
+    stage('Build') {
+      steps {
+        echo 'Jenkins minimum pipeline'
+      }
+    }
+      stage('Test') {
+            agent any
+              steps {
+                  sh 'py.test --junit-xml test-reports/results.xml sources/test_calc.py'
+            }
+            post {
+                always {
+>>>>>>> blue-ocean-editor
                     junit 'test-reports/results.xml'
                 }
             }
         }
+<<<<<<< HEAD
     }      
+=======
+    }  
+>>>>>>> blue-ocean-editor
 }
